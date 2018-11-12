@@ -1,2 +1,2 @@
-FROM gcr.io/google-containers/heapster-influxdb-amd64:v1.5.2
+FROM gcr.io/google-containers/heapster-amd64:v1.5.4
 MAINTAINER lwj

@@ -1,2 +1,2 @@
-FROM gcr.io/google-containers/heapster-amd64:v1.5.4
+FROM gcr.io/google-containers/heapster-grafana-amd64:v5.0.4
 MAINTAINER lwj
