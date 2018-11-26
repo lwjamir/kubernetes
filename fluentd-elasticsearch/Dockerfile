@@ -1,2 +1,2 @@
-FROM k8s.gcr.io/fluentd-elasticsearch:v2.2.0
+FROM gcr.io/google-containers/fluentd-elasticsearch:v2.3.2
 MAINTAINER lwj
