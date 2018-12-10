@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-demo
+  namespace: default
+spec:
+  template:
+    metadata:
+      labels:
+        app: jenkins-demo
+    spec:
+      containers:
+      - image: cnych/jenkins-demo:<BUILD_TAG>
+        imagePullPolicy: IfNotPresent
+        name: jenkins-demo
+        env:
+        - name: branch
+          value: <BRANCH_NAME>
