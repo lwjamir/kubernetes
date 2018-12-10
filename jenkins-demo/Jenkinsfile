@@ -14,14 +14,15 @@ node('jnlp') {
     }
     stage('Build') {
         echo "3.Build Docker Image Stage"
-        sh "docker build -t registry.cn-shenzhen.aliyuncs.com/pandamir/jenkins-demo:${build_tag} ."
+        sh "docker build -t http://192.168.20.197:5000/jenkins-demo:${build_tag} ."
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
-        withCredentials([usernamePassword(credentialsId: 'aliHub', passwordVariable: 'aliHubPassword', usernameVariable: 'aliHubUser')]) {
-            sh "docker login -u ${aliHubUser} -p ${aliHubPassword}"
-            sh "docker push registry.cn-shenzhen.aliyuncs.com/pandamir/jenkins-demo:${build_tag}"
-        }
+        #withCredentials([usernamePassword(credentialsId: 'aliHub', passwordVariable: 'aliHubPassword', usernameVariable: 'aliHubUser')]) {
+           # sh "docker login -u ${aliHubUser} -p ${aliHubPassword}"
+           # sh "docker push registry.cn-shenzhen.aliyuncs.com/pandamir/jenkins-demo:${build_tag}"
+        #}
+        sh "docker push 192.168.20.197:5000/jenkins-demo:${build_tag}"
     }
     stage('Deploy') {
         echo "5. Deploy Stage"
